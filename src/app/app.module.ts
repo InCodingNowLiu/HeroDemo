@@ -1,21 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  } from '@angular/core';
 //ng module lives here
 import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { HeroService } from './hero.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    DashboardComponent,
+    HeroesComponent
   ],
   imports: [
     BrowserModule,
     //imports the formsModule before binding with [(ngModule)]
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  //{provide: Logger, useClass: EventBetterLogger}
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
